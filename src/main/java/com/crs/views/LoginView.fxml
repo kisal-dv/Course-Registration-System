@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+package com.crs.utils;
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+        import java.sql.Connection;
+        import java.sql.DriverManager;
+        import java.sql.SQLException;
 
-<VBox alignment="CENTER" prefHeight="183.0" prefWidth="286.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.crs.controllers.LoginController">
-    <Label graphicTextGap="7.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Course Registration System" />
-    <TextField fx:id="usernameField" prefHeight="25.0" prefWidth="298.0" promptText="Username" />
-    <PasswordField fx:id="passwordField" promptText="Password" />
-    <Button onAction="#handleLogin" text="Login">
-      <font>
-         <Font size="13.0" />
-      </font></Button>
-</VBox>
+        public class DatabaseConnection {
+        private static final String URL = "jdbc:mysql://localhost:3306/crs_db";
+        private static final String USER = "root"; // Change this to your DB username
+        private static final String PASSWORD = "your_password"; // Change this to your DB password
+
+        public static Connection getConnection() {
+        try {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (SQLException e) {
+        e.printStackTrace();
+        throw new RuntimeException("Database connection failed!");
+        }
+        }
+        }

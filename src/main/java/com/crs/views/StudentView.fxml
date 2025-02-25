@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.crs.controllers.StudentController">
+    <Label text="Student Management" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+    <TextField fx:id="studentNameField" promptText="Student Name"/>
+    <TextField fx:id="programField" promptText="Program"/>
+    <Button text="Add Student" onAction="#addStudent"/>
+</VBox>
